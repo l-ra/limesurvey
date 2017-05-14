@@ -7,7 +7,7 @@ RUN apt-get update && \
 	apt-get clean && \
 	php5enmod imap \
 	&& rm -rf /app \
-    && curl -o /limesurvey2.65.0_170502.tar.bz2 limesurveyhttp://download.limesurvey.org/latest-stable-release/limesurvey2.65.0+170502.tar.bz2 \
+    && curl -o /limesurvey2.65.0_170502.tar.bz2 http://download.limesurvey.org/latest-stable-release/limesurvey2.65.0+170502.tar.bz2 \
     && tar -xvjf /limesurvey2.65.0_170502.tar.bz2 \
     && mv limesurvey app \
 	&& mkdir -p /uploadstruct \
