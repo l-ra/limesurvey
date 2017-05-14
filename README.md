@@ -36,6 +36,7 @@ To run limesurvey in a different http location set the `HTTP_LOCATION` environme
 
 Limesurvey will then be available via http://localhost/surveys.
 
+
 ## Database in volumes
 
 If you want to preserve data in the event of a container deletion, or version upgrade, you can assign the MySQL data into a named volume:
@@ -45,6 +46,15 @@ If you want to preserve data in the event of a container deletion, or version up
     
 
 If you delete the container simply run again the above command. The installation page will appear again. Don't worry just put the same parameters as before and limesurvey will recognize the database.
+
+## Config volume
+
+If you want to preserve config, use volume for configuration. First time the volume is used, configuration files are created by the app. Using separate volume keeps the changes between container restarts.
+
+    docker run -d --name limesurvey \
+       -v config:/app/application/config \
+       -v mysql:/var/lib/mysql \
+       -p 80:80 crramirez/limesurvey:latest
 
 
 ## Upload folder
